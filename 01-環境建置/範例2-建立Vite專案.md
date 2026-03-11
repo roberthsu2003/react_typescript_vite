@@ -26,6 +26,7 @@ npm create vite@latest my-react-app -- --template react-ts
 
 - `npm create vite@latest`：使用 Vite 建立工具
 - `my-react-app`：專案資料夾名稱（可自行修改）
+- `--`：分隔符，表示「之後的參數要傳給 Vite 建立工具」，而不是給 npm 解讀
 - `--template react-ts`：使用 React + TypeScript 模板
 
 ---
