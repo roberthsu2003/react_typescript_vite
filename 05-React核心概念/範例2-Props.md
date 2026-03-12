@@ -2,20 +2,25 @@
 
 ## 目標
 
-學會從父元件傳入參數給子元件，並定義型別。
+學會從父元件傳入參數給子元件，並定義型別。完成本範例後，範例 2 的區塊將顯示使用 Props 的 Greeting 元件。
 
 ---
 
-## 動手操作
+## 前置條件
 
-1. 啟動範例專案後，點選 **「2. Props」**
-2. 觀察同一個 Greeting 元件，傳入不同參數（有 age / 無 age）會顯示不同內容
+- 已完成 [範例 1：JSX 基礎](範例1-JSX基礎.md)
 
 ---
 
-## 步驟 1：建立子元件
+## 步驟 1：認識 Props
 
-在 `src/` 下建立 `Greeting.tsx`：
+Props 是父元件傳給子元件的參數，讓元件可以接收不同資料、達到重複使用。使用 `interface` 可定義 Props 型別，`age?` 表示可選屬性。
+
+---
+
+## 步驟 2：修改 Example2Props.tsx
+
+開啟 `src/examples/Example2Props.tsx`，將**整個檔案內容**替換為：
 
 ```tsx
 interface GreetingProps {
@@ -25,50 +30,63 @@ interface GreetingProps {
 
 function Greeting({ name, age }: GreetingProps) {
   return (
-    <div>
-      <h2>你好，{name}！</h2>
+    <div className="greeting-box">
+      <h3>你好，{name}！</h3>
       {age !== undefined && <p>今年 {age} 歲</p>}
     </div>
   )
 }
 
-export default Greeting
-```
-
-**重點**：`interface` 定義 Props 型別，`age?` 表示可選。
-
----
-
-## 步驟 2：在父元件使用
-
-在 `App.tsx` 中：
-
-```tsx
-import Greeting from './Greeting'
-
-function App() {
+function Example2Props() {
   return (
-    <div>
-      <Greeting name="小明" age={18} />
-      <Greeting name="小華" />
+    <div className="example-card">
+      <h2>範例 2：Props（屬性）</h2>
+      <p className="hint">👆 觀察同一個 Greeting 元件，傳入不同參數會顯示不同內容</p>
+
+      <section>
+        <h3>有傳 name 和 age</h3>
+        <Greeting name="小明" age={18} />
+      </section>
+
+      <section>
+        <h3>只傳 name（age 為可選）</h3>
+        <Greeting name="小華" />
+      </section>
     </div>
   )
 }
-```
 
-**重點**：`name` 和 `age` 是傳給子元件的參數。
+export default Example2Props
+```
 
 ---
 
-## 步驟 3：觀察結果
+**重點**：`Greeting` 是子元件，`Example2Props` 是父元件，透過 `name`、`age` 傳遞參數。
 
-- 第一個會顯示「你好，小明！」和「今年 18 歲」
-- 第二個只顯示「你好，小華！」（因為沒傳 age）
+---
+
+## 步驟 3：儲存並觀察
+
+1. 儲存檔案
+2. 在瀏覽器中點選 **「2. Props」**
+3. 確認畫面顯示：
+   - 第一個區塊：「你好，小明！」、「今年 18 歲」
+   - 第二個區塊：只有「你好，小華！」（無年齡）
+
+---
+
+## 重點整理
+
+- `interface GreetingProps`：定義 Props 型別，`age?` 表示可選
+- `<Greeting name="小明" age={18} />`：傳入字串用 `"`，數字用 `{}`
+- `{age !== undefined && <p>...</p>}`：有 age 才顯示
 
 ---
 
 ## 完成
 
-Props 讓元件可以接收不同資料，達到重複使用。
+範例 2 已完成！繼續 [範例 3：State](範例3-State.md)。
 
-[下一範例：範例 3 - State](範例3-State.md)
+---
+
+[上一範例：範例 1 - JSX 基礎](範例1-JSX基礎.md) | [下一範例：範例 3 - State](範例3-State.md)
