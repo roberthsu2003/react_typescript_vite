@@ -44,14 +44,30 @@ Next.js（全端框架）
 
 ---
 
-## 步驟 4：與其他框架比較
+## 步驟 4：與 React Router v7（Remix）的差異與選擇
 
-| 框架 | 特色 |
-|------|------|
-| **Next.js** | Vercel 出品、生態完整、部署方便 |
-| **React Router v7** | Remix 整合、Loader/Action 模式 |
+Next.js 與 React Router v7（整合 Remix）都是 React 全端框架，差異如下：
 
-兩者都是 React 全端框架，可依專案需求選擇。
+### 主要差異
+
+| 項目 | Next.js | React Router v7（Remix） |
+|------|---------|--------------------------|
+| **資料載入** | Server Component（元件層級 async） | Loader（路由層級） |
+| **表單處理** | Server Actions | Action |
+| **路由方式** | 檔案即路由（`app/` 資料夾） | `routes.ts` 設定 |
+| **部署** | 原生支援 Vercel，也可自部署 | 可部署至任意 Node 環境 |
+| **生態** | 生態完整、模板多 | 輕量、彈性高 |
+
+### 適合的專案類型
+
+| 選擇 Next.js | 選擇 React Router v7 |
+|-------------|---------------------|
+| 需要快速部署、Vercel 生態 | 需要高度自訂、自架伺服器 |
+| 偏好檔案式路由、Server Components | 偏好 Loader/Action 模式 |
+| 新專案、重視 SEO 的內容站 | 既有 React Router 專案升級 |
+| 以 App Router 為主的全端應用 | 多策略路由（SPA / SSR 切換） |
+
+兩者皆可勝任多數全端需求，可依團隊熟悉度與部署環境選擇。詳見 [06 - Remix](../06-remix/主題.md) 的對應比較。
 
 ---
 

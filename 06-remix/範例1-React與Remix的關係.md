@@ -57,6 +57,33 @@ React Router v7（路由 + 全端框架）
 
 ---
 
+## 步驟 5：與 Next.js 的差異與選擇
+
+React Router v7 與 Next.js 都是 React 全端框架，差異如下：
+
+### 主要差異
+
+| 項目 | React Router v7（Remix） | Next.js |
+|------|--------------------------|---------|
+| **資料載入** | Loader（路由層級） | Server Component（元件層級 async） |
+| **表單處理** | Action | Server Actions |
+| **路由方式** | `routes.ts` 設定 | 檔案即路由（`app/` 資料夾） |
+| **部署** | 可部署至任意 Node 環境 | 原生支援 Vercel，也可自部署 |
+| **生態** | 輕量、彈性高 | 生態完整、模板多 |
+
+### 適合的專案類型
+
+| 選擇 React Router v7 | 選擇 Next.js |
+|---------------------|--------------|
+| 需要高度自訂、自架伺服器 | 需要快速部署、Vercel 生態 |
+| 偏好 Loader/Action 模式 | 偏好檔案式路由、Server Components |
+| 既有 React Router 專案升級 | 新專案、重視 SEO 的內容站 |
+| 多策略路由（SPA / SSR 切換） | 以 App Router 為主的全端應用 |
+
+兩者皆可勝任多數全端需求，可依團隊熟悉度與部署環境選擇。詳見 [07 - Next.js](../07-Next.js/主題.md) 的對應比較。
+
+---
+
 ## 完成
 
 理解關係後，繼續 [範例 2：認識專案結構](範例2-認識專案結構.md)。
