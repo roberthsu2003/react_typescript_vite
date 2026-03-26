@@ -17,7 +17,7 @@
 ├── 06-remix/          # 主題 + 6 個範例（React Router v7）
 ├── 07-Next.js/        # 主題 + 6 個範例（Next.js）
 ├── 08-TypeScript語法/ # 深度：TypeScript 語法與型別系統
-└── 09-React/          # 深度：React 單元（導覽 → 05 範例）
+└── 09-React/          # 深度：React 進階（ref、Context、自訂 Hook 等 8 範例）
 ```
 
 每章包含：
@@ -50,16 +50,16 @@
 | 單元 | 說明 | 範例數 |
 |------|------|--------|
 | [TypeScript 語法](08-TypeScript語法/主題.md) | 變數、函式、`interface`、泛型、聯合型別與窄化 | 6 |
-| [React 單元](09-React/主題.md) | JSX、Props、State、Hooks、事件；**範例與專案見 [05](05-React核心概念/主題.md)** | 6 |
+| [React 單元（進階）](09-React/主題.md) | `useRef`、效能 Hook、Context、自訂 Hook、表單進階、組合、`memo`／`key`；**入門仍請先讀 [05](05-React核心概念/主題.md)** | 8 |
 
-> **React 單元**：[09-React](09-React/主題.md) 為導覽入口，實際教學檔案與 `examples` 仍在 [05-React核心概念](05-React核心概念/主題.md)，避免重複維護。
+> **React**：入門在 [05 - React 核心概念](05-React核心概念/主題.md)；進階範例與練習專案說明在 [09-React](09-React/主題.md)。
 
 ---
 
 ## 使用方式
 
 1. 從 [01 - 環境建置](01-環境建置/主題.md) 開始，依主線完成 **01～07**
-2. 需要加強型別或 React 時，再開啟上表 **深度學習**
+2. 需要加強型別或 React 時，再開啟上表 **深度學習**（React 進階請在讀完 05 後再讀 09）
 3. 每個範例都是 **Markdown 檔案**，內含步驟與程式碼，可一步一步跟著操作
 
 ---
