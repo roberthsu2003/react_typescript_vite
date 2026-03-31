@@ -8,7 +8,7 @@
 
 - 能用編輯器建立可運作的靜態頁面（HTML／CSS／JS）
 - 說得出「純三件套」的優點與實務限制（模組、型別、開發迴圈等）
-- 能與 [00 - Node.js 與 npm](../00-Node.js與npm/README.md)、[00 - HTML／CSS／Node／TypeScript](../00-HTML-CSS-Node-TypeScript/README.md) 對照閱讀
+
 
 ### 本章範例
 
