@@ -4,3 +4,4 @@
 
 - 所有 **`npm` 指令**請在本目錄下執行。
 - 依範例步驟會逐步修改 `package.json`、`index.js`，並安裝套件；**不必**另建新專案。
+- 本專案使用 **ES Module**（`package.json` 內 **`"type": "module"`**），`index.js` 請用 **`import`／`export`** 撰寫。

@@ -23,6 +23,7 @@
   "name": "npm-lab",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "…"
 }
 ```
@@ -32,6 +33,7 @@
 | **name** | 專案／套件名稱 |
 | **version** | 版本號 |
 | **private** | `true` 表示不發布到 npm 公開註冊表 |
+| **type** | 設為 **`"module"`** 時，專案內 `.js` 以 **ES Module** 解析（`import`／`export`），與 Vite／現代前端常見寫法一致 |
 | **description** | 簡短說明（選填） |
 
 ---
@@ -72,7 +74,7 @@
 
 | 欄位 | 說明 |
 |------|------|
-| **dependencies** | 執行時需要的套件（例如執行 `index.js` 時 `require` 的模組） |
+| **dependencies** | 執行時需要的套件（例如執行 `index.js` 時 **`import`** 的模組） |
 | **devDependencies** | 開發／建置時需要的工具（例如 ESLint、TypeScript、Vite） |
 
 ---

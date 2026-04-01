@@ -2,6 +2,7 @@
   "name": "npm-lab",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "00-Node.js與npm 共用練習專案（範例 2～4）",
   "scripts": {
     "start": "node index.js",

@@ -9,6 +9,8 @@
 
 > **專案位置**：請使用 [範例/練習專案](./範例/練習專案/)（內含起始 `package.json` 與 `index.js`）。終端機請先 `cd` 進入該目錄，**後續指令皆在此目錄執行**。
 
+> **ES Module**：練習專案的 `package.json` 已設定 **`"type": "module"`**，因此 `index.js` 使用 **`import`／`export`**（與瀏覽器、`import` 的 Vite 專案寫法一致），而非 CommonJS 的 `require`。
+
 ---
 
 ## 步驟 1：`npm install`
@@ -58,6 +60,8 @@ npm list
 
 ## 步驟 4：安裝正式依賴 — `axios`
 
+**axios 是什麼？** 它是常見的 **HTTP 客戶端**套件，用來在 JavaScript／Node 裡發送請求（GET、POST 等），語法比傳統 `fetch` 或舊版 `http` 模組更簡潔，且支援攔截器、逾時設定等。因為**執行** `index.js` 時就要 `import axios`，所以屬於 **`dependencies`**（正式依賴）。
+
 ```bash
 npm install axios
 ```
@@ -68,7 +72,7 @@ npm install axios
 接著**將 `index.js` 替換為**下列內容（存檔後再執行 `npm run start`）：
 
 ```javascript
-const axios = require("axios");
+import axios from "axios";
 
 async function main() {
   const res = await axios.get("https://httpbin.org/get", { timeout: 8000 });
@@ -86,6 +90,8 @@ main().catch((err) => {
 
 ## 步驟 5：安裝開發依賴 — `eslint`
 
+**ESLint 是什麼？** 它是 **JavaScript／TypeScript 的程式碼檢查工具**（Linter），在撰寫或存檔時幫你抓語法問題、風格不一致、常見壞味道；**不會**在執行 `node index.js` 時自動載入，而是給開發者與編輯器／CI 使用，所以通常放在 **`devDependencies`**（開發依賴）。細部概念見 [範例 4：認識 ESLint](範例4-認識ESLint.md)。
+
 ```bash
 npm install -D eslint
 ```
@@ -96,10 +102,11 @@ npm install -D eslint
 
 ## 步驟 6：確認 `package.json`
 
-開啟 `package.json`，應大致包含：
+開啟 `package.json`，應大致包含（含既有的 **`"type": "module"`**）：
 
 ```json
 {
+  "type": "module",
   "dependencies": {
     "axios": "^…"
   },
