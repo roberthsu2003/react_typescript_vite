@@ -11,6 +11,14 @@
 
 > **ES Module**：練習專案的 `package.json` 已設定 **`"type": "module"`**，因此 `index.js` 使用 **`import`／`export`**（與瀏覽器、`import` 的 Vite 專案寫法一致），而非 CommonJS 的 `require`。
 
+**執行 `import` 範例前請確認**（與 `index.js` **同一層**的 `package.json` 內要有）：
+
+```json
+"type": "module"
+```
+
+若你是**手動建新資料夾**、只複製了 `index.js` 而沒有連同本 repo 的 `package.json` 一併複製，就會缺這一行，Node 會先猜測模組型別並出現警告（見下方疑難排解）。
+
 ---
 
 ## 步驟 1：`npm install`
@@ -85,6 +93,29 @@ main().catch((err) => {
 ```
 
 預期終端機印出成功訊息（需網路連線）。若失敗，請檢查網路或稍後再試。
+
+### 疑難排解：`MODULE_TYPELESS_PACKAGE_JSON` 警告
+
+若終端機出現類似訊息：
+
+```text
+Module type of file:///.../index.js is not specified...
+To eliminate this warning, add "type": "module" to .../package.json.
+```
+
+**原因**：`index.js` 裡有 **`import`**，但**該專案**的 `package.json` 沒有宣告 `"type": "module"`，Node 只好先當成 CommonJS 解析再改判成 ES module，因而警告並略增開銷。
+
+**處理方式**（擇一即可）：
+
+1. **建議**：在與 `index.js` 同目錄的 `package.json` **最外層**加入一行（注意 JSON 逗號）：
+
+   ```json
+   "type": "module"
+   ```
+
+2. 或改用本 repo 提供的完整 **[練習專案](./範例/練習專案/)**（已含 `"type": "module"`），不要只複製單一 `index.js`。
+
+改完存檔後再執行 `npm run start`，警告應會消失。
 
 ---
 
