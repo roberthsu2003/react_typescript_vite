@@ -8,13 +8,11 @@
 
 ## 講義一覽（索引）
 
-> **用途**：集中列出各章連結與簡介，**不表示**固定學習順序；先後安排請以各章 `主題.md`（或 `00-*` 的 `README.md`）內的導覽為準。  
-> **維護**：新增、改名或移除章節時，**僅需更新本表**（不必維護多份重複連結或排序欄）。
 
 | 分類 | 章節 | 摘要 | 範例數 |
 |------|------|------|--------|
 | 前置 | [00 - HTML + CSS + JavaScript](00-HTML-CSS-JavaScript/README.md) | 純靜態三件套；改程式後多半要手動重新整理頁面 | 1 |
-| 前置 | [00 - Node.js 與 npm](00-Node.js與npm/README.md) | Node、npm、`package.json`、套件、ESLint（原可獨立成章的 npm 內容已併入此） | 5 |
+| 前置 | [00 - Node.js 與 npm](00-Node.js與npm/README.md) | Node、npm、`package.json`、套件、ESLint | 4 |
 | 前置 | [00 - HTML + CSS + Node + TypeScript](00-HTML-CSS-Node-TypeScript/README.md) | 以 `tsc` 編譯後由瀏覽器載入；體驗編譯與重新整理的迴圈 | 1 |
 | 主線 | [01 - 環境建置](01-環境建置/主題.md) | Node、npm、專案結構 | 4 |
 | 主線 | [02 - Vite 入門](02-Vite入門/主題.md) | Vite 是什麼、`vite.config`、dev／build | 3 |

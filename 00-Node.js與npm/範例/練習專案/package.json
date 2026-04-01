@@ -1,0 +1,11 @@
+{
+  "name": "npm-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "00-Node.js與npm 共用練習專案（範例 2～4）",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "build": "echo 教學用：尚未設定真實建置流程"
+  }
+}
