@@ -12,6 +12,20 @@
 
 ---
 
+## 步驟 0：建立練習檔案並讓專案載入它
+
+與 [範例 1 步驟 0](範例1-變數與基本型別.md#步驟-0建立練習檔案並讓專案載入它) 相同做法，改使用本範例專用檔名：
+
+1. 終端機進入 **`08-TypeScript語法/examples`**（已依 [範例 0](範例0-建立練習專案.md) 建好 Vite 專案）。
+2. 在 **`src`** 新增 **`practice-03-interfaces.ts`**（可自 [practice-03-interfaces-範本.ts](practice-03-interfaces-範本.ts) 複製）。
+3. 在 **`src/main.ts` 最上方**加入：`import "./practice-03-interfaces";`
+4. **建議**註解掉先前範例的練習檔 `import`（例如 `practice-01-basics`、`practice-02-functions`），避免多個檔同時執行、主控台輸出重疊。
+5. 執行 `npm run dev` 確認專案能啟動。
+
+接下來**步驟 1～6**的程式碼，請都寫在 **`practice-03-interfaces.ts`**（檔名可自訂，但請與 `main.ts` 的 `import` 一致）。
+
+---
+
 ## 步驟 1：用 `interface` 描述物件
 
 `interface` 用來**命名**一種物件「長什麼樣子」：有哪些屬性、各是什麼型別。
@@ -113,31 +127,31 @@ type Admin = User & { role: 'admin' }
 
 ---
 
-## 步驟 6：在練習專案中試作
+## 步驟 6：綜合練習（在練習檔中）
 
-在 `src/main.ts` 或新檔 `src/models.ts`：
+在 **`practice-03-interfaces.ts`** 末尾加入（或覆寫前面實驗碼）：
 
 ```typescript
 interface Todo {
-  id: number
-  title: string
-  done: boolean
+  id: number;
+  title: string;
+  done: boolean;
 }
 
 function summarize(items: Todo[]): string {
-  const left = items.filter((t) => !t.done).length
-  return `共 ${items.length} 筆，未完成 ${left} 筆`
+  const left = items.filter((t) => !t.done).length;
+  return `共 ${items.length} 筆，未完成 ${left} 筆`;
 }
 
 const list: Todo[] = [
-  { id: 1, title: '寫作業', done: false },
-  { id: 2, title: '買菜', done: true },
-]
+  { id: 1, title: "寫作業", done: false },
+  { id: 2, title: "買菜", done: true },
+];
 
-console.log(summarize(list))
+console.log(summarize(list));
 ```
 
-執行 `npm run dev`，在瀏覽器主控台查看輸出。
+執行 `npm run dev`，在瀏覽器**開發者工具 → Console** 查看輸出。
 
 ---
 
@@ -154,6 +168,8 @@ console.log(summarize(list))
 ---
 
 ## 小練習
+
+在 **`practice-03-interfaces.ts`** 中完成：
 
 1. 定義 `interface Book`，包含 `title: string`、`author: string`、選用欄位 `year?: number`，並建立一個符合的常數。  
 2. 定義 `type Point3D`，在 `Point`（`x`, `y`）之上加上 `z: number`（可用 `type Point = { x: number; y: number }` 再交集）。  
