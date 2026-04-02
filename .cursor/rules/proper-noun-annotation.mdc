@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+When generating Markdown content, any programming language proper nouns used, and not just Trandictional Chinese character,should be followed by a peoper noun annotation
