@@ -2,6 +2,8 @@
 
 本資料夾用 **[tsx](https://github.com/privatenumber/tsx)** 在**終端機**直接執行 `.ts` 檔，無需開瀏覽器、也無需 Vite。適合先熟悉語法與 `console.log`，再進入 [`../examples/`](../examples/) 的網頁專案。
 
+> **練習方式**：`src/*.ts` 在 repo 中若含完整程式，僅供**完成後對照**；學習時請依 [主題](../主題.md)「練習原則」與各範例講義，**清空或覆寫**後自行撰寫（或從講義複製到**你的**檔案），再執行。
+
 > **名稱說明**：口語或打字有時會寫成「**tcx**」，一般是指這類「在終端機跑 TypeScript」的工具；本教材採用社群常用的 **`tsx`** 套件（與 React 的 `.tsx` 副檔名不同，請勿混淆）。
 
 ## 與網頁範例的對照
@@ -13,6 +15,7 @@
 | [範例 3](../範例3-interface與type.md) | `src/03-interfaces.ts` | `examples/03-interfaces/` |
 | [範例 4](../範例4-陣列與泛型入門.md) | `src/04-arrays-generics.ts` | `examples/04-arrays-generics/` |
 | [範例 5](../範例5-聯合型別與型別窄化.md) | `src/05-unions.ts` | `examples/05-unions/` |
+| [範例 6](../範例6-工具型別與型別斷言.md) | `src/06-utility-types.ts` | （僅指令列；無對應 `examples` 資料夾） |
 
 ## 第一次使用
 
@@ -43,9 +46,9 @@ npx tsx src/01-basics.ts
 npm run watch:01
 ```
 
-（`watch:02`～`watch:05` 同理。）
+（`watch:02`～`watch:06` 同理。）
 
 ## 建議順序
 
-1. 在此資料夾依範例 1→5 完成（或與講義同步）**指令列**練習。  
-2. 再依各講義「步驟 0」進入 **`examples/`** 對應資料夾，用瀏覽器與 **Console／頁面輸出** 體驗前端環境。
+1. 在此資料夾依範例 1→6 完成（或與講義同步）**指令列**練習：**自己撰寫** `src/*.ts`，勿只執行現成檔案。  
+2. 再依各講義「步驟 0b」進入 **`examples/`** 對應資料夾（範例 1～5），用瀏覽器與 **Console／頁面輸出** 體驗前端環境。
