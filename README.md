@@ -8,20 +8,31 @@
 
 ## 講義一覽（索引）
 
+### 前置
 
-| 分類 | 章節 | 摘要 | 範例數 |
-|------|------|------|--------|
-| 前置 | [00 - HTML + CSS + JavaScript](00-HTML-CSS-JavaScript/README.md) | 純靜態三件套、**`<script type="module">`** 與 `import`／`export` | 1 |
-| 前置 | [00 - Node.js 與 npm](00-Node.js與npm/README.md) | Node、npm、`package.json`（**`type: module`**）、套件、ESLint | 4 |
-| 前置 | [00 - HTML + CSS + Node + TypeScript](00-HTML-CSS-Node-TypeScript/README.md) | `tsc` 編譯為 **ES Module**（`import`／`export`）後由瀏覽器載入；體驗編譯與重新整理 | 1 |
-| 主線 | [01 - 環境建置](01-環境建置/主題.md) | Node、npm、專案結構 | 4 |
-| 主線 | [02 - Vite 入門](02-Vite入門/主題.md) | Vite 是什麼、`vite.config`、dev／build、`npm create vite`（**vanilla-ts**／**react-ts**） | 4 |
-| 主線 | [03 - TypeScript 配置](03-TypeScript配置/主題.md) | `tsconfig`、型別基礎 | 3 |
-| 主線 | [05 - React 核心概念](05-React核心概念/主題.md) | JSX、Props、State、Hooks、事件；含 **react-ts** 專案結構補充 | 6 |
-| 主線 | [06 - Remix](06-remix/主題.md) | React Router v7、Remix、路由、Loader、Action | 6 |
-| 主線 | [07 - Next.js](07-Next.js/主題.md) | App Router、Server Component、Server Action | 6 |
-| 深度 | [08 - TypeScript 語法](08-TypeScript語法/主題.md) | 變數、函式、`interface`、泛型、聯合型別與窄化 | 6 |
-| 深度 | [09 - React（進階）](09-React/主題.md) | `useRef`、效能 Hook、Context、自訂 Hook、表單進階、組合、`memo`／`key` 等 | 8 |
+| 章節 | 摘要 | 範例數 |
+|------|------|--------|
+| [00 - HTML + CSS + JavaScript](00-HTML-CSS-JavaScript/README.md) | 純靜態三件套、**`<script type="module">`** 與 `import`／`export` | 1 |
+| [00 - Node.js 與 npm](00-Node.js與npm/README.md) | Node、npm、`package.json`（**`type: module`**）、套件、ESLint | 4 |
+| [00 - HTML + CSS + Node + TypeScript](00-HTML-CSS-Node-TypeScript/README.md) | `tsc` 編譯為 **ES Module**（`import`／`export`）後由瀏覽器載入；體驗編譯與重新整理 | 1 |
+
+### 主線
+
+| 章節 | 摘要 | 範例數 |
+|------|------|--------|
+| [01 - 環境建置](01-環境建置/主題.md) | Node、npm、專案結構 | 4 |
+| [02 - Vite 入門](02-Vite入門/主題.md) | Vite 是什麼、`vite.config`、dev／build、`npm create vite`（**vanilla-ts**／**react-ts**） | 4 |
+| [03 - TypeScript 配置](03-TypeScript配置/主題.md) | `tsconfig`、型別基礎 | 3 |
+| [05 - React 核心概念](05-React核心概念/主題.md) | JSX、Props、State、Hooks、事件；含 **react-ts** 專案結構補充 | 6 |
+| [06 - Remix](06-remix/主題.md) | React Router v7、Remix、路由、Loader、Action | 6 |
+| [07 - Next.js](07-Next.js/主題.md) | App Router、Server Component、Server Action | 6 |
+
+### 深度
+
+| 章節 | 摘要 | 範例數 |
+|------|------|--------|
+| [08 - TypeScript 語法](08-TypeScript語法/主題.md) | 變數、函式、`interface`、泛型、聯合型別與窄化 | 6 |
+| [09 - React（進階）](09-React/主題.md) | `useRef`、效能 Hook、Context、自訂 Hook、表單進階、組合、`memo`／`key` 等 | 8 |
 
 **檔案約定**
 
