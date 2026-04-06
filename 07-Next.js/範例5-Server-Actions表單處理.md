@@ -26,7 +26,9 @@
 
 ## 步驟 2：建立 Server Action
 
-建立 `src/app/contact/actions.ts`：
+**請先建立此檔**，再建立步驟 3 的 `page.tsx`。若只有 `page.tsx` 而沒有同資料夾的 `actions.ts`，建置會出現 **`Module not found: Can't resolve './actions'`**。
+
+建立 `src/app/contact/actions.ts`（與 `page.tsx` **同一層**）：
 
 ```tsx
 "use server";
