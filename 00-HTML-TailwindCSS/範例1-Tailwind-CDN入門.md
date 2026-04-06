@@ -4,6 +4,12 @@
 
 用**一個** `index.html`，透過 [Tailwind Play CDN](https://tailwindcss.com/docs/installation/play-cdn) 在瀏覽器裡直接試 utility class，不必安裝 Node 或打包工具。
 
+### 官方學習資源（網址）
+
+- [Tailwind CSS 官網](https://tailwindcss.com)
+- [Tailwind CSS 文件（Docs）](https://tailwindcss.com/docs) — utility、主題與安裝方式皆以文件為準
+- [Play CDN 說明](https://tailwindcss.com/docs/installation/play-cdn) — 與本範例相同的 CDN 引入方式
+
 > **注意**：CDN 適合學習與快速原型；正式產品多半會用建置工具（例如 Vite）與 Tailwind 的完整設定，見官方文件與本講義後續章節。
 
 ## 步驟 1：建立 `index.html`
