@@ -1,13 +1,9 @@
-# React + TypeScript + Vite 初學者講義
+# 從 Vibe Coding 到專業開發：React + Vite + 生態系整合講義
 
-專為初學者設計的**講義**，幫助你在 vibe coding 時理解程式碼在做什麼。
+這是一份專為 **Vibe Coding 使用者**與**初學者**設計的進階講義。
+當你透過 AI 工具快速生成專案後，若想進一步客製化、優化或排除錯誤，就需要理解底層原理。本講義以 **Vite + React** 為技術主軸，由淺入深帶你掌握前端核心，並一路延伸至現代全端架構（如 Remix、Next.js）的整合，讓你不僅能用 AI 寫扣，更能真正讀懂並掌控你的專案架構。
 
 每一章節都有**主題**和**步驟化範例**，學生可依序學習。
-
-## 學習對象
-
-- 程式初學者
-- vibe coding 使用者，想了解 AI 產生的程式碼在做什麼
 
 ---
 
@@ -41,7 +37,7 @@
 | [08 - TypeScript 語法](08-TypeScript語法/主題.md) | 變數、函式、`interface`、泛型、聯合型別與窄化 | 6 |
 | [09 - React（進階）](09-React/主題.md) | `useRef`、效能 Hook、Context、自訂 Hook、表單進階、組合、`memo`／`key` 等 | 8 |
 
-### 整合Google AI Studio產生的專案
+### 實戰演練：AI 生成專案的架構升級與部署整合
 
 - [如何將靜態網頁發佈到 GitHub Pages 教學](./github-docs-site/README.md)
 
