@@ -26,6 +26,7 @@
 | [01 - 環境建置](01-環境建置/主題.md) | Node、npm、專案結構 | 4 |
 | [02 - Vite 入門](02-Vite入門/主題.md) | Vite 是什麼、`vite.config`、dev／build、`npm create vite`（**vanilla-ts**／**react-ts**） | 4 |
 | [03 - TypeScript 配置](03-TypeScript配置/主題.md) | `tsconfig`、型別基礎 | 3 |
+| [04 - BFF 與 Express 代理](04-BFF與Express代理/主題.md) | 從零開始將 Vite + React 專案整合 Express 後端，實作 API Proxy (解決 CORS)、保護 Gemini API Key 並準備部署 | 4 |
 | [05 - React 核心概念](05-React核心概念/主題.md) | JSX、Props、State、Hooks、事件；含 **react-ts** 專案結構補充 | 6 |
 | [06 - Remix](06-remix/主題.md) | React Router v7、Remix、路由、Loader、Action | 6 |
 | [07 - Next.js](07-Next.js/主題.md) | App Router、Server Component、Server Action | 6 |
@@ -43,7 +44,7 @@
 
 - [寫給程式設計師：Vite 進階配置與優化 (模組別名、環境變數、跨域代理與打包切割)](./Vite進階與優化/主題.md)
 
-- [AI Studio React專案下載後轉BFF + Express API Proxy（Render）](./BFF+Express_API_proxy/README.md)
+- [AI Studio React專案下載後轉BFF + Express API Proxy（Render）](./BFF+Express_API_proxy/README.md) (附錄：使用 AI 編輯器一鍵轉換專案之 Prompt 模板)
 
 - [AI Studio React專案下載後轉Serverless 後端](./Serverless_後端/)
 
