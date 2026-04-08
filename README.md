@@ -45,6 +45,10 @@
 
 - 若要將靜態網頁發佈到 **GitHub Pages**（建置輸出至倉庫根目錄 `docs/`），請參考 [docs-site 說明](github-docs-site/README.md)。
 
+- [AI Studio React專案下載後轉BFF + Express API Proxy（Render）](./BFF+Express_API_proxy/README.md)
+
+- [AI Studio React專案下載後轉Serverless 後端](./Serverless_後端/)
+
 **模組系統（與 React + Vite 一致）**
 
 - 本講義**可執行範例**一律採 **ES Module**：**`import`／`export`**，不使用 CommonJS 的 **`require`**／**`module.exports`**。
