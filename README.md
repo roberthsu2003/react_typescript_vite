@@ -41,7 +41,7 @@
 
 - [如何將靜態網頁發佈到 GitHub Pages 教學](./github-docs-site/README.md)
 
-- [寫給程式設計師：Vite 進階配置與優化 (模組別名、環境變數、跨域代理與打包切割)](./Vite進階與優化/README.md)
+- [寫給程式設計師：Vite 進階配置與優化 (模組別名、環境變數、跨域代理與打包切割)](./Vite進階與優化/主題.md)
 
 - [AI Studio React專案下載後轉BFF + Express API Proxy（Render）](./BFF+Express_API_proxy/README.md)
 
