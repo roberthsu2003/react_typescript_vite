@@ -43,9 +43,9 @@
 
 ### 整合Google AI Studio產生的專案
 
-- [寫給程式設計師：Vite 進階配置與優化 (模組別名、環境變數、跨域代理與打包切割)](./Vite進階與優化/README.md)
+- [如何將靜態網頁發佈到 GitHub Pages 教學](./github-docs-site/README.md)
 
-- 若要將靜態網頁發佈到 **GitHub Pages**（建置輸出至倉庫根目錄 `docs/`），請參考 [docs-site 說明](github-docs-site/README.md)。
+- [寫給程式設計師：Vite 進階配置與優化 (模組別名、環境變數、跨域代理與打包切割)](./Vite進階與優化/README.md)
 
 - [AI Studio React專案下載後轉BFF + Express API Proxy（Render）](./BFF+Express_API_proxy/README.md)
 
