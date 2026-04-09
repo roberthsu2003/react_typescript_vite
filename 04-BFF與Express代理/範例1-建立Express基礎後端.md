@@ -34,7 +34,7 @@ app.get('/api/status', (req, res) => {
 });
 
 // 啟動伺服器
-app.listen(PORT, '0,0,0,0' ,() => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`[Server] Express 伺服器已啟動: http://localhost:${PORT}`);
 });
 ```
