@@ -54,7 +54,7 @@ app.listen(PORT, () => {
 
 打開專案根目錄下的 `package.json`，找到 `"scripts"` 區塊。我們需要新增一個專門用來開發階段啟動後端的指令。
 
-你可以加入一條 **`"dev:server": "ts-node server/server.ts"`** 的設定：
+你可以加入一條 **`"dev:server": "tsx server/server.ts"`** 的設定：
 
 ```json
   "scripts": {
@@ -66,7 +66,7 @@ app.listen(PORT, () => {
   },
 ```
 
-這行指令告訴 npm，當我們執行 `dev:server` 時，請使用 `ts-node`（一個可以不需編譯、直接執行 TypeScript 檔案的工具）去執行我們的 `server.ts`。
+這行指令告訴 npm，當我們執行 `dev:server` 時，請使用 `tsx`（一個現代高效、不需編譯就能直接執行 TypeScript 檔案的工具）去執行我們的 `server.ts`。
 
 ---
 
