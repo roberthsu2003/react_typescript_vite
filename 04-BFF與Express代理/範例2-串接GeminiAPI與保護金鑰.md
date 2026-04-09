@@ -38,64 +38,60 @@ GEMINI_API_KEY=你的_GOOGLE_GEMINI_API_KEY_放在這裡
 請用以下程式碼**完整覆蓋** `server/server.ts` 裡面的內容：
 
 ```typescript
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import { GoogleGenAI } from '@google/genai';
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import { GoogleGenAI } from "@google/genai";
 
-// 讓程式去讀取我們剛剛建立的 .env 檔案
-dotenv.config();
+dotenv.config({ path: new URL("../.env", import.meta.url).pathname })
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = parseInt(process.env.PORT || "3000", 10);
 
+//Middleware 設置
 app.use(cors());
-app.use(express.json()); // 解析前端送來的 JSON body
+app.use(express.json());
 
-// 狀態測試 API
-app.get('/api/status', (req, res) => {
-  res.json({ message: 'BFF 伺服器運作正常！', status: 'OK' });
+//建立一個簡單的GET API,用來測試伺服器是否正常運作
+
+app.get("/api/status", (req, res) => {
+  res.json({ message: "BFF伺服器運作正常!", status: "ok" });
 });
 
-// ------------- BFF 核心邏輯 -------------
-// 接收來自前端的對話請求，由代理伺服器發送給 Gemini
-app.post('/api/chat', async (req, res) => {
+app.post("/api/chat", async (req, res) => {
   try {
-    // 檢查有沒有設定環境變數
+    //檢查有沒有設定環境變數
     if (!process.env.GEMINI_API_KEY) {
-      return res.status(500).json({ error: '找不到 GEMINI_API_KEY 環境變數設定。' });
+      return res
+        .status(500)
+        .json({ error: "找不到GEMINI_API_KEY 環境變數設定。" });
     }
 
-    // 1. 初始化 AI 客戶端 (他會自己去撈 process.env.GEMINI_API_KEY)
-    const ai = new GoogleGenAI();
-
-    // 2. 獲取前端送過來的問題
+    const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
     const userMessage = req.body.message;
     if (!userMessage) {
-      return res.status(400).json({ error: '請提供 message 欄位。' });
+      return res.status(400).json({ error: "請提供message欄位。" });
     }
 
-    // 3. 在這台伺服器上呼叫 Gemini API
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: "gemini-2.5-flash",
       contents: userMessage,
     });
 
-    // 4. 將 Gemini 回覆的結果，原封不動傳回給前端
     res.json({
       text: response.text,
     });
-    
   } catch (error) {
-    console.error('呼叫 Gemini 發生錯誤:', error);
-    res.status(500).json({ error: '伺服器內部發生錯誤，請稍後再試。' });
+    console.error("呼叫Gemini發生錯誤", error);
+    res.status(500).json({ error: "伺服器內部發生錯誤,請稍後再試。" });
   }
 });
-// ----------------------------------------
 
-app.listen(PORT, () => {
-  console.log(`[Server] Express 伺服器已啟動: http://localhost:${PORT}`);
+//啟動伺服器
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`[Server] Express伺服器已經啟動:http://localhost:${PORT}`);
 });
+
 ```
 
 在這段程式碼中，最重要的是 `@google/genai` 這個套件只在後端環境運行。前端傳送一個 Request，我們後端就幫它打電話給 Google，拿到結果後再轉交給前端。這就是 API Proxy 的精神。
