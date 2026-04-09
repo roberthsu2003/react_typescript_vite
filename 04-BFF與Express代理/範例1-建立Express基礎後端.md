@@ -59,7 +59,7 @@ app.listen(PORT, () => {
 ```json
   "scripts": {
     "dev": "vite",
-    "dev:server": "ts-node server/server.ts",  // 增加這行！
+    "dev:server": "tsx server/server.ts",  // 增加這行！
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
