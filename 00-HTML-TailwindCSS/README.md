@@ -15,12 +15,14 @@
 ## 學習資源
 
 - [Tailwind CSS 官方網站](https://tailwindcss.com/)
+
 - [Tailwind CSS Play CDN](https://tailwindcss.com/docs/installation/play-cdn)
+
 - [Awesome Tailwindcss](https://github.com/aniftyco/awesome-tailwindcss)
 
-- [Tailwind components css]](https://tailwindcss.com/plus/ui-blocks#product-marketing)
+- [Tailwind components css](https://tailwindcss.com/plus/ui-blocks#product-marketing)
 
--[]
+
 
 ### 本章範例
 
