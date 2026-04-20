@@ -154,6 +154,10 @@ vercel dev --listen 3001
 ? In which directory is your code located? → 直接按 Enter（預設為 ./）
 ```
 
+> **💡 這個動作背後發生了什麼事？**  
+> 1. **產生 `.vercel` 資料夾**：CLI 會在你的本機專案根目錄產生一個隱藏的 `.vercel` 資料夾，裡面儲存了專案與你的帳號綁定的 ID。
+> 2. **在 Vercel 雲端建立專案**：沒錯！雖然你只是要在「本機測試」，但在你回答完問題的那一刻，Vercel 確實已經在你的雲端帳號裡建立了一個名為 `gemini-qa-app` 的專案（App）。只是裡面暫時是一片空殼，等待我們之後正式執行部署（Deploy）。
+
 設定完後，Vercel CLI 啟動成功：
 
 ```
