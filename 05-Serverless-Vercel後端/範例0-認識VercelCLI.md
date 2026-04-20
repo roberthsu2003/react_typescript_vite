@@ -144,7 +144,7 @@ my-serverless-app/
 
 ---
 
-## 步驟 6：了解目前版本的問題
+## 步驟 6：親身體驗 API Key 外洩危機
 
 打開 `src/App.tsx`，找到這段程式碼：
 
@@ -168,7 +168,32 @@ define: {
 > Vite 的 `define` 設定會在 build 時，把 Key 的值**直接寫死**在 JavaScript 檔案裡。
 > 任何人打開 Chrome DevTools → Sources → 搜尋 `AIzaSy`，就能找到你的 Key！
 
-我們接下來的三個範例，就是要一步一步把這個問題修復。
+為了讓你深刻了解這個問題的嚴重性，我們來實際測試一下：
+
+1. **設定環境變數：** 
+   將 `my-serverless-app` 目錄下的 `.env.example` 複製一份並命名為 `.env`，然後在裡面填入你自己的 [Google Gemini API Key](https://aistudio.google.com/)。
+   ```bash
+   cp .env.example .env
+   # 接著請用編輯器打開 .env 檔案，填寫 GEMINI_API_KEY=AIzaSy...
+   ```
+
+2. **將專案打包：**
+   在終端機執行前端的 production 打包指令：
+   ```bash
+   npm run build
+   ```
+   
+3. **親眼見證外洩：**
+   打包完成後，Vite 會生成一個 `dist` 資料夾（這就是即將部署上線的純前端檔案）。
+   這時請你打開 `dist/assets`，找到裡面產生的 `index-xxxx.js` 檔案，用你的編輯器打開它。
+   
+   按下 `Ctrl + F` 或 `Cmd + F`，輸入你剛剛設定的那串 `AIza` 開頭的 API Key 進行搜尋...
+   
+   **有看到嗎？！你的 API Key 原封不動地變成了純文字，被寫死在這份即將公開給全世界的 JS 檔案裡面！** 
+   
+   這意味著未來部署之後，任何人只要按下 F12 打開瀏覽器的開發者工具，搜尋此 JS 檔案，就能輕易盜走你的 Key，並用你的帳號額度狂打 API！
+
+我們接下來的三個範例，就是要一步一步把這個嚴重的安全漏洞修復，學習如何把 API 請求保護在 Serverless 後端之中。
 
 ---
 
@@ -177,7 +202,7 @@ define: {
 - [ ] 已安裝 Vercel CLI：`vercel --version` 可正常執行
 - [ ] 已登入 Vercel 帳號：`vercel login` 完成
 - [ ] 已複製原始專案到工作資料夾 `my-serverless-app`
-- [ ] 理解目前版本的安全問題（API Key 曝露在前端）
+- [ ] **已親自動手打包並在 `dist/assets` 的 JS 檔案中找到明碼寫死的 API Key！**
 
 ---
 
