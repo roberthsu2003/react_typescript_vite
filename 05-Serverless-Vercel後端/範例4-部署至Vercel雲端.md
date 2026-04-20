@@ -89,6 +89,22 @@ Vercel CLI
 vercel --prod
 ```
 
+### （進階）步驟 4：事後綁定 GitHub Repo（啟動自動部署）
+
+如果在執行完 `vercel --prod` 之後，你改變心意了，希望也能享有後續「只要 `git push` 上去就會自動更新網站」的便利性，你可以隨時手動將專案連結到 GitHub！
+
+請先將目前的程式碼上傳到 GitHub，然後選擇以下其中一種方式：
+
+- **做法 A：透過指令（推薦）**  
+  在專案終端機執行：
+  ```bash
+  vercel git connect
+  ```
+  按照提示選擇你的 GitHub 帳號並授權，就能輕鬆將這份本機專案與 GitHub 綁定。
+
+- **做法 B：從 Vercel 網頁設定**  
+  進入 Vercel Dashboard 點選你的專案 ➔ 點選右上角的 **Settings** ➔ 選擇左側的 **Git** ➔ 在 **Connect to Git** 區域選擇你的 GitHub Repository，點選 Connect 即可。
+
 ---
 
 ## 方法二：透過 Vercel 網頁介面部署（推薦初學者）
