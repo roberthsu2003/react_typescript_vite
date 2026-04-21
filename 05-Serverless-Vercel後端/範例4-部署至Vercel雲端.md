@@ -81,14 +81,24 @@ Vercel 需要知道如何路由你的請求。選擇其中一種設定方式：
 
 ```json
 {
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
     },
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "api/**/*.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1.ts"
     }
   ]
 }
@@ -306,7 +316,7 @@ vercel logs api/gemini
 | 錯誤 | 原因 | 解決方案 |
 |---|---|---|
 | 500 Internal Server Error | 環境變數未設定或 API Key 無效 | 在 Vercel Settings → Environment Variables 確認 `GEMINI_API_KEY` 已設定 |
-| 404 Not Found | Serverless Function 未被正確部署 | 檢查 `api/gemini.ts` 是否在專案根目錄，檢查 `vercel.json` rewrites 設定 |
+| 404 Not Found | Serverless Function 未被正確部署 | 檢查 `api/gemini.ts` 是否在專案根目錄，檢查 `vercel.json` routes 設定 |
 | CORS 錯誤 | 前端和後端來源不同 | 這個不應該出現。確認你的前端呼叫的是 `/api/gemini`（相對路徑），而不是絕對 URL |
 | 請求超時 | Gemini API 呼叫太慢 | Vercel 的預設超時是 300 秒，應該足夠。檢查網路連線或 Gemini API 狀態 |
 
