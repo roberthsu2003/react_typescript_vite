@@ -51,6 +51,7 @@
 #### 🌐 其他基礎主題
 
 - [如何將靜態網頁發佈到 GitHub Pages 教學](./github-docs-site/README.md)
+- [如何將靜態網頁發佈到 vercel 教學](./static-deploy-vercel/README.md)
 
 ---
 
