@@ -26,6 +26,7 @@
 | [01 - 環境建置](01-環境建置/主題.md) | Node、npm、專案結構 | 4 |
 | [02 - Vite 入門](02-Vite入門/主題.md) | Vite 是什麼、`vite.config`、dev／build、`npm create vite`（**vanilla-ts**／**react-ts**） | 4 |
 | [03 - TypeScript 配置](03-TypeScript配置/主題.md) | `tsconfig`、型別基礎 | 3 |
+| [03.5 - 單元測試](03.5-UnitTesting/主題.md) | 搭配 Jest 或 Vitest 實作 React/Node.js 單元測試 | 4 |
 | [04 - BFF 與 Express 代理](04-BFF與Express代理/主題.md) | 從零開始將 Vite + React 專案整合 Express 後端，實作 API Proxy (解決 CORS)、保護 Gemini API Key 並準備部署 | 4 |
 | [05 - React 核心概念](05-React核心概念/主題.md) | JSX、Props、State、Hooks、事件；含 **react-ts** 專案結構補充 | 6 |
 | [06 - Remix](06-remix/主題.md) | React Router v7、Remix、路由、Loader、Action | 6 |
@@ -92,6 +93,19 @@
 | **2** ✦ | [實戰：打造極簡個人社交名片](./Next.js_Vercel_雲端名片/README.md) | 整合五項功能建立完整 Next.js 應用程式並部署 |
 
 > ✦ 步驟 2 為綜合實戰，須先完成步驟 1 的五個範例。
+
+---
+
+#### 路徑四：單元測試（Unit Tests）
+
+> 適合希望提升程式品質、降低改動風險、建立「可持續維護」開發習慣的學習者。
+
+| 步驟 | 章節 | 說明 |
+|:----:|------|------|
+| **1** | [03.5 - 單元測試（學習步驟）](./03.5-UnitTesting/主題.md) | 以 Vitest / Jest 實作 Node 與 React 的單元測試；含測試環境、常見斷言與 Mock |
+| **2** ✦ | [把單元測試加進你的專案（參考流程）](./03.5-UnitTesting/主題.md#把單元測試加進你的專案參考流程) | 在既有專案加入 `test` 腳本、設定測試環境，並完成第一支可執行的測試 |
+
+> ✦ 步驟 2 可直接套用到本講義任一 Vite / Next.js 專案（建議先完成步驟 1）。
 
 ---
 
