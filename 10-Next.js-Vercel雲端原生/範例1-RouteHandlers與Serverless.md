@@ -36,6 +36,19 @@ src/
 
 > App Router（Next.js 新版路由架構）的 Route Handlers（路由處理函式）使用 Web 標準的 `Request` / `Response`，所以前端呼叫 API 與後端處理 API 的概念會更一致。你不用同時記一套前端 `fetch()` 寫法、另一套後端 `req` / `res` 寫法，先掌握 Web 標準這一套即可。
 
+### 先釐清：伺服器端不只 `/api`
+
+Route Handler 很適合用來建立「可被 HTTP（超文字傳輸協定）請求呼叫的 API（應用程式介面）端點」，但它不是 Next.js 中唯一的伺服器端寫法。
+
+| 寫法 | 適合情境 |
+|------|----------|
+| Server Component（伺服器元件） | 伺服器端讀資料、查資料庫、讀環境變數，然後直接產生頁面 |
+| Server Action（伺服器動作） | 表單送出、資料新增/修改/刪除，而且不想額外設計 API URL |
+| Route Handler（路由處理函式） | 前端 `fetch()`、手機 App、webhook（外部事件通知）或第三方服務需要呼叫的 API 端點 |
+
+> 所以「要保護 token（權杖）」的重點是：程式要留在伺服器端，不要送到瀏覽器。  
+> 它可以在 Server Component、Server Action 或 Route Handler 中，不是只有 `/api` 才安全。
+
 ### Vercel 的自動對應
 
 部署到 Vercel 後：

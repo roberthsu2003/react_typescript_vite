@@ -92,8 +92,8 @@ export const redis = Redis.fromEnv();
 ```
 
 > **💡 為什麼要獨立一個檔案？**  
-> 如果直接在每個 Route Handler 裡 `new Redis()`，每次匯入都會建立新物件。  
-> 獨立一個 `redis.ts` 並匯出，讓 Node.js 的模組快取重複利用同一個實例。
+> `redis.ts` 是伺服器端共用工具，Route Handler（路由處理函式）、Server Component（伺服器元件）、Server Action（伺服器動作）都可以匯入使用。  
+> 獨立一個 `redis.ts` 並匯出，讓 Node.js（伺服器端 JavaScript 執行環境）的模組快取重複利用同一個實例。
 
 ---
 
@@ -105,9 +105,12 @@ export const redis = Redis.fromEnv();
 mkdir -p src/app/api/views
 ```
 
+> 這個 Route Handler 是示範「如果你需要一個可被 HTTP（超文字傳輸協定）呼叫的計數器 API（應用程式介面），可以這樣寫」。  
+> 但如果只是自己的 Server Component 要讀寫 Redis，不需要先呼叫自己的 `/api/views`，可以直接匯入 `redis` 工具函式。
+
 ```typescript
 // src/app/api/views/route.ts
-import { redis } from '@/lib/redis';
+import { redis } from '../../../lib/redis';
 
 // 計數器的 Key 名稱（在 Redis 中的鍵）
 const VIEWS_KEY = 'page:views';
@@ -151,7 +154,9 @@ Redis incr() 逐一執行（原子操作）
 
 ## 步驟 5：在頁面中顯示瀏覽次數
 
-建立 `src/app/counter/page.tsx`，讓頁面每次被訪問時自動計數：
+建立 `src/app/counter/page.tsx`，讓頁面每次被訪問時自動計數。
+
+這裡故意示範 **Server Component 直接使用 Redis**：因為頁面本身就在伺服器端執行，不需要再 `fetch('/api/views')` 呼叫自己的 API。
 
 ```bash
 mkdir -p src/app/counter
@@ -159,24 +164,17 @@ mkdir -p src/app/counter
 
 ```typescript
 // src/app/counter/page.tsx
+import { redis } from '../../lib/redis';
 
 // Server Component：每次請求時在伺服器端執行
 // revalidate = 0 確保每次都是最新數字，不使用快取
 export const revalidate = 0;
 
+const VIEWS_KEY = 'page:views';
+
 async function incrementAndGetViews(): Promise<number> {
-  // 呼叫自己的 API（Server Component 中直接 fetch）
-  const baseUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : 'http://localhost:3000';
-
-  const res = await fetch(`${baseUrl}/api/views`, {
-    method: 'POST',
-    cache: 'no-store',  // 不使用 fetch 快取，確保每次都呼叫 API
-  });
-
-  const data = await res.json();
-  return data.views;
+  // Server script：直接在伺服器端操作 Redis，不會把 Token 暴露給瀏覽器
+  return redis.incr(VIEWS_KEY);
 }
 
 export default async function CounterPage() {
@@ -197,6 +195,9 @@ export default async function CounterPage() {
 }
 ```
 
+> 這段程式會讀取 `UPSTASH_REDIS_REST_URL` 與 `UPSTASH_REDIS_REST_TOKEN`，但它是 Server Component（伺服器元件），不會被送到瀏覽器。  
+> 如果你改成 Client Component（檔案最上方加 `"use client"`），就不能直接匯入 `redis` 或讀取私密環境變數。
+
 啟動 `npm run dev`，前往 `http://localhost:3000/counter`，每次重新整理數字都會 +1。
 
 ---
@@ -206,6 +207,8 @@ export default async function CounterPage() {
 Rate Limiting 是「防止同一個用戶在短時間內呼叫太多次 API」的機制。  
 例如：每個 IP 每 60 秒最多呼叫 10 次。
 
+這裡適合寫成 Route Handler（路由處理函式），因為它本身就是一個會被外部請求呼叫的 HTTP API（超文字傳輸協定應用程式介面）端點，而且需要讀取請求的 Header（標頭）來判斷 IP。
+
 建立 `src/app/api/protected/route.ts`：
 
 ```bash
@@ -214,7 +217,7 @@ mkdir -p src/app/api/protected
 
 ```typescript
 // src/app/api/protected/route.ts
-import { redis } from '@/lib/redis';
+import { redis } from '../../../lib/redis';
 
 const RATE_LIMIT = 10;       // 每個時間窗口最多 10 次
 const WINDOW_SECONDS = 60;   // 時間窗口：60 秒

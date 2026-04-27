@@ -102,6 +102,9 @@ npm install @vercel/blob
 mkdir -p src/app/api/upload
 ```
 
+> 這裡使用 Route Handler（路由處理函式），不是因為「token（權杖）只能放在 `/api`」，而是因為檔案來自瀏覽器的上傳表單。  
+> 瀏覽器不能直接拿到 `BLOB_READ_WRITE_TOKEN`，所以前端只把檔案傳給 `/api/upload`，真正使用 Blob Token 上傳到 Vercel Blob 的動作留在伺服器端。
+
 ```typescript
 // src/app/api/upload/route.ts
 import { put } from '@vercel/blob';
@@ -323,6 +326,9 @@ export async function GET() {
 ```
 
 訪問 `http://localhost:3000/api/files` 可以看到所有已上傳的檔案清單。
+
+> 如果檔案清單只是要在某個頁面中顯示，也可以在 Server Component（伺服器元件）中直接呼叫 `list()` 後渲染畫面，不一定要先建立 `/api/files`。  
+> 只有當你需要讓瀏覽器、手機 App（應用程式）或外部服務用 HTTP（超文字傳輸協定）取得這份清單時，才需要把它做成 Route Handler。
 
 ---
 
