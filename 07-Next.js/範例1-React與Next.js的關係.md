@@ -2,7 +2,7 @@
 
 ## 目標
 
-理解 React 與 Next.js 的關係，以及 Next.js 提供的全端能力。
+理解 React 與 Next.js 的關係，以及 Next.js 提供的全端能力與伺服器端執行模型。
 
 ---
 
@@ -32,7 +32,51 @@ Next.js 讓 React 應用能處理路由、資料載入、表單等完整 Web 需
 
 ---
 
-## 步驟 3：兩者關係圖
+## 步驟 3：Next.js 也是 Web Server
+
+使用 Next.js 時，不要只把它想成「會產生前端畫面」的工具。Next.js 也是一個 Web server（網頁伺服器），會負責接收瀏覽器請求、執行伺服器端程式、產生 HTML（超文字標記語言）或回傳資料。
+
+在 App Router 中，元件大致可以先用這個方式理解：
+
+- **Server Component（伺服器元件）**：預設元件類型，程式碼在伺服器端執行，可以安全讀取環境變數、呼叫後端服務、查詢資料庫，結果再變成 HTML 或資料傳給瀏覽器。
+- **Client Component（客戶端元件）**：檔案最上方加上 `"use client"`，會在瀏覽器端執行，適合處理點擊、輸入、`useState`、`useEffect` 等互動行為。
+- **Static Rendering（靜態渲染）**：如果頁面不依賴每次請求才知道的資料，Next.js 可以在建置時或快取後產生靜態結果，使用者請求時直接回傳。
+
+常見畫面會是「外層 Server Component（伺服器元件）負責讀資料與組版，內層 Client Component（客戶端元件）負責互動」：
+
+```tsx
+// Server Component：可直接查資料庫，不會把 token（權杖）暴露到瀏覽器
+export default async function Page() {
+  const products = await db.product.findMany();
+
+  return <ProductList products={products} />;
+}
+```
+
+```tsx
+"use client";
+
+// Client Component：只處理瀏覽器互動
+export function ProductList({ products }) {
+  // 這裡可以使用 useState、onClick 等互動邏輯
+}
+```
+
+### 重要觀念：不是所有後端邏輯都一定要放在 `/api`
+
+如果資料只是在「伺服器端產生頁面時」使用，例如查資料庫後直接渲染商品列表，可以放在 Server Component（伺服器元件）裡，不一定要先寫 `/api` 再從自己的頁面呼叫自己的 API。
+
+需要放在 `/api` 或 `route.ts` 的情況通常是：
+
+- 這個端點要給瀏覽器用 `fetch()` 主動呼叫。
+- 這個端點要給外部系統呼叫，例如 webhook（外部事件通知）。
+- 這段程式本質上是在提供 JSON API（回傳 JSON 的 API），而不是直接產生頁面。
+
+所以「要保護 token（權杖）或查資料庫」不等於一定要寫在 `/api`。更精準的判斷是：如果程式碼只需要在伺服器端渲染頁面時使用，可以放在 Server Component；如果你需要一個可被 HTTP（超文字傳輸協定）請求呼叫的 API（應用程式介面）端點，才放在 Route Handler（路由處理函式）。
+
+---
+
+## 步驟 4：兩者關係圖
 
 ```
 React（UI 函式庫）
@@ -44,7 +88,7 @@ Next.js（全端框架）
 
 ---
 
-## 步驟 4：與 React Router v7（Remix）的差異與選擇
+## 步驟 5：與 React Router v7（Remix）的差異與選擇
 
 Next.js 與 React Router v7（整合 Remix）都是 React 全端框架，差異如下：
 
