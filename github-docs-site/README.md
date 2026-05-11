@@ -156,6 +156,27 @@ jobs:
         uses: actions/deploy-pages@v4
 ```
 
+<details>
+<summary><b>📖 點我展開：工作流程 (Workflow) 設定檔解說</b></summary>
+
+這份 `deploy.yml` 檔案主要分為幾個關鍵部分：
+
+1. **`on: push`**
+   - **觸發條件**：設定只有當程式碼推送到 `main` 分支時，才會自動觸發這段自動化流程。
+2. **`permissions`**
+   - **權限設定**：授權 GitHub Actions 讀取程式碼 (`contents: read`) 以及寫入/發佈到 GitHub Pages 的權限 (`pages: write`, `id-token: write`)。
+3. **`jobs: build` (打包階段)**
+   - **Checkout**：將專案的程式碼拉取到 GitHub 的雲端伺服器（此處使用 Ubuntu）。
+   - **Setup Node**：在雲端伺服器上安裝 Node.js 執行環境（指定為 Node 20）。
+   - **Install & Build**：自動執行 `npm ci` 安裝依賴套件，接著執行 `npm run build` 打包專案。
+   - **Upload artifact**：將 Vite 打包完成的 `dist` 資料夾儲存為「產物 (Artifact)」，以備下一個階段使用。
+4. **`jobs: deploy` (部署階段)**
+   - **Deploy to GitHub Pages**：接收上一個階段打包好的產物，並將靜態檔案正式發佈到 GitHub Pages 上。
+
+簡單來說，這份設定檔就是告訴 GitHub 伺服器：「**當我把程式碼推上來時，請幫我準備一台乾淨的電腦，安裝 Node.js，執行專案的打包指令，最後把產生的 `dist` 資料夾上傳並建立為 GitHub Pages！**」
+
+</details>
+
 ### 第二步：推送程式碼
 
 將修改好的 `vite.config.ts` 與 `.github/workflows/deploy.yml` 提交並推送至 GitHub：
