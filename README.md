@@ -76,6 +76,7 @@
 
 | 步驟 | 章節 | 說明 |
 |:----:|------|------|
+| **0** | [00 - Vercel 平台簡介](./00-Vercel簡介/README.md) | 認識 Vercel 這個現代化雲端部署與 BaaS 平台（附官網連結） |
 | **1** | [05 - Serverless Vercel 後端（學習步驟）](./05-Serverless-Vercel後端/主題.md) | 認識 Vercel CLI、建立 Serverless Function、Vite proxy 本機測試、雲端部署 |
 | **2** ✦ | [實戰：AI Studio 專案轉 Vercel Serverless（完整參考）](./Serverless_後端/README.md) | 完整轉換說明與 AI 編輯器 Prompt、部署驗證、常見錯誤排查 |
 
