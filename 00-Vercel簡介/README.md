@@ -1,5 +1,7 @@
 # Vercel 簡介：現代化前端與 Serverless 部署平台
 
+[**Vercel資訊圖表**](./images/vercel簡介.png)
+
 [Vercel](https://vercel.com/) 是一個專為前端開發者打造的雲端部署平台。它提供了非常直覺的開發者體驗（Developer Experience, DX），讓您可以輕鬆地將網站與應用程式部署到全球的邊緣節點（Edge Network）上。
 
 ## 為什麼 Vercel 被視為一種 BaaS (Backend-as-a-Service)？
